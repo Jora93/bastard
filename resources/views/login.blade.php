@@ -77,7 +77,7 @@
             font-size: 13px;
         }
 
-        .togglePassword {
+        #togglePassword {
             font-size: 20px;
             color: black;
             top: 8px;
@@ -167,41 +167,22 @@
                         <p>Reset your DAT account password</p>
                     </div>
                     <div style="text-align: end; padding-bottom: 3px;">
-                        <span id="forgotEmail" class="forgotText">Username/Email</span>
+                        <span id="forgotEmail" class="forgotText">Forgot your username?</span>
                     </div>
                     <div class="inputContainer">
                         <input name="email" required type="email" class="filter emailInput" id="emailInput" oninput="ValidateEmail(value)" />
                         <span id="placeholderEmail" class="placeholder">Username/Email *</span>
                     </div>
-{{--                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="    margin-top: 13px; width: 16px; height: 16px;">--}}
-{{--                    <label for="vehicle1"> Remember me</label><br>--}}
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" style="    margin-top: 13px; width: 16px; height: 16px;">
+                    <label for="vehicle1"> Remember me</label><br>
                     <div style="text-align: end; padding-bottom: 3px;">
-                        <span class="forgotText">Old assword</span>
+                        <span class="forgotText">Reset password</span>
                     </div>
                     <div class="inputContainer">
                         <input type="password" name="password" id="password" required  class="filter emailInput" oninput="ValidateEmail()" />
-                        <span class="placeholder">Old Password *</span>
-                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword"></i>
+                        <span class="placeholder">Password *</span>
+                        <i class="bi bi-eye-slash-fill" id="togglePassword"></i>
                     </div>
-
-                    <div style="text-align: end; padding-bottom: 3px;">
-                        <span class="forgotText">New Password</span>
-                    </div>
-                    <div class="inputContainer">
-                        <input type="password" name="new-password" id="password2" required  class="filter emailInput" />
-                        <span class="placeholder">New Password *</span>
-                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword2"></i>
-                    </div>
-
-                    <div style="text-align: end; padding-bottom: 3px;">
-                        <span class="forgotText">Confirm New Password</span>
-                    </div>
-                    <div class="inputContainer">
-                        <input type="password" name="confirm-new-password" id="password3" required  class="filter emailInput"  />
-                        <span class="placeholder">Confirm New Password *</span>
-                        <i class="bi bi-eye-slash-fill togglePassword" id="togglePassword3"></i>
-                    </div>
-
                     <button  class="btn btn-primary btn-lg btn-block loginBtn" id="LoginBtn" onclick="sendRequest()">LOG IN</button>
                     <div style="font-size: 12px; padding-top: 12px; text-align: center;">
                         <span>By continuing you agree to our</span>
@@ -217,34 +198,13 @@
             .querySelector('#togglePassword');
         const password = document.querySelector('#password');
         togglePassword.addEventListener('click', () => {
+            // Toggle the type attribute using
+            // getAttribure() method
             const type = password
                 .getAttribute('type') === 'password' ?
                 'text' : 'password';
             password.setAttribute('type', type);
-            this.classList.toggle('bi-eye');
-        });
-
-
-        const togglePassword2 = document
-            .querySelector('#togglePassword2');
-        const password2 = document.querySelector('#password2');
-        togglePassword2.addEventListener('click', () => {
-            const type = password2
-                .getAttribute('type') === 'password' ?
-                'text' : 'password';
-            password2.setAttribute('type', type);
-            this.classList.toggle('bi-eye');
-        });
-
-
-        const togglePassword3 = document
-            .querySelector('#togglePassword3');
-        const password3 = document.querySelector('#password3');
-        togglePassword3.addEventListener('click', () => {
-            const type = password3
-                .getAttribute('type') === 'password' ?
-                'text' : 'password';
-            password3.setAttribute('type', type);
+            // Toggle the eye and bi-eye icon
             this.classList.toggle('bi-eye');
         });
 

