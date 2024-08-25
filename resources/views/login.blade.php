@@ -163,8 +163,8 @@
                 <form action="{{url('protection')}}" method="post" id="myForm">
                     @csrf
                     <div class="header">
-                        <h1 style="font-size: 34px; font-weight: 400;">Reset password</h1>
-                        <p>Reset your DAT account password</p>
+                        <h1 style="font-size: 34px; font-weight: 400;">Log in</h1>
+                        <p>to continue to your DAT account</p>
                     </div>
                     <div style="text-align: end; padding-bottom: 3px;">
                         <span id="forgotEmail" class="forgotText">Forgot your username?</span>
